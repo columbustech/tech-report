@@ -1,0 +1,32 @@
+\section{Introduction}
+
+Use of the PyData ecosystem for data cleaning and integration has become ubiquitous today.
+The PyData ecosystem has been so successful due to the following reasons:
+\begin{itemize}
+  \item Ease of installation: Services are packaged as PyPi packages that even a lay user can easily install.
+  \item Interoperability of services: It is very easy to call multiple python packages within an interactive Jupyter notebook environment and have them interoperate in order to accomplish particular tasks i.e. Services can be composed together to develop more complicated applications.
+  \item Extensibility: The PyData Ecosystem provides a very well-defined set of guidelines for developing new PyPi packages. 
+    If a particular application cannot be built with the available services, it is easy for developers to write and publish a new PyPi package for it, which can then be used by the community.
+\end{itemize}
+
+However, the PyData ecosystem suffers from some critical limitations, namely:
+\begin{itemize}
+  \item Not Collaborative: PyPi packages are typically designed to run within a local environment for a single user.
+    In practice, data cleaning is often highly collaborative.
+    Users are often forced to resorting to crude collaboration mechanisms such as mailing csv tables and python code to each other.
+  \item Not Scalable: Again, as PyPi packages are designed to run within a local environment within a single machine, 
+    they cannot scale beyond the memory, disk space and other resources provided by that environment.
+  \item Not Multilingual: Users are restricted to developing services and applications in python. 
+    Data scientists knowledgeable in other languages such as SQL or R cannot easily use these tools.
+  \item Not Seamless: Can only import packages written in python.
+    If you happen to have a handy service written in some other programming environment,
+    you would need to rewrite it from scratch as a PyPi package or write a python wrapper around it in order to use it in this ecosystem.
+    This is particularly problematic because python programs are known to not be particularly performant.
+\end{itemize}
+
+Some cloud-based data cleaning and integration tools today offer solutions for scaling and collaboration. And cloud 
+tools also provide rigid pipelines for composing services together. However, to the best of our knowledge, there does
+not exist a cloud-native solution which allows users to flexibly compose cloud-native scalable and collaborative services 
+in a user-defined workflow. There also does not exist a cloud-native ecosystem equivalent to the 
+PyData ecosystem in terms of the quantity and variety of available services and a well-defined 
+guidelines for extensibility. 

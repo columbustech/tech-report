@@ -1,0 +1,63 @@
+\section{Motivating Examples}
+
+Along the lines of the limitations in current systems outlined in the previous section, we built Columbus to tackle
+specific real world scenarios that we observed. In this section, we shall describe four such
+scenarios. 
+
+\subsection{Large scale deduplication}
+Alice has a large CSV table $X$ of 3M tuples. She needs to carry out entity matching on these 3M
+tuples in order to identify and eliminate duplicates. In this entity matching problem, the search
+space is the cartesian product of table $X$ with itself, i.e. $3M \times 3M$. Typically, the first 
+step is to find a set of rules to reduce the search space. This step is known as blocking. Alice 
+uses tools in the PyData ecosystem (such as the PyMatcher packages) to take a sample $Y$ of 100K 
+tuples from $X$, then experiment with $Y$ to find a good blocker B. Alice attempts to apply $B$ to $X$
+but the PyData tools would either run too slowly or be unable to hold such large inputs in memory.
+Alice would ideally want some solution which can automatically create a production workflow for 
+this step from the development workflow she created. Next, Alice would like this production 
+workflow to be executed on a cluster of cloud machines in order to speed up the process.
+
+\subsection{Collaborative labeling}
+Bob has another CSV table $X^\prime$ with the same schema as X. He wants to use Alice's blocker to
+generate a blocking output. Next, Bob takes a sample $C$ of 1000 tuple pairs from the blocking 
+output. Bob needs these pairs to be labeled as match/no-match in order to train a machine learning
+model to do the deduplication. Bob has 3 interns in his team and would like to distribute the 
+labeling task among these interns. Bob would want to monitor their progress and be notified when
+the task has been completed.
+
+Ideally, Bob would like a unified platform that can:
+\begin{itemize}
+  \item Give Bob access to Alice's blocker
+  \item Run Alice's Blocker on $X^\prime$
+  \item Allow Bob to create a labeling job and automatically distribute workload among the 
+    interns specified by Bob.
+  \item Allow Bob to monitor labeling progress
+  \item Allow Bob to train an ML model based on the labeled data
+\end{itemize}
+  
+\subsection{Language agnostic query engine}
+Carol and Dave work in a data science team. Carol has a dataset $D$ of size 25G. Carol is proficient in 
+SQL and would like to run some SQL queries on $D$ to obtain a subset $D^\prime$ from $D$ for analysis.
+Dave needs to obtain some other dataset $D^{\prime \prime}$ from D and carry out some other analysis on
+it. However, Dave usually works with R or python and is not familiar with SQL.
+
+Ideally, Carol and Dave would like a platform which would:
+\begin{itemize}
+  \item Allow Carol to query the data in SQL
+  \item Allow Carol to share a large dataset with Dave in a secure manner without physically copying the
+    data to another location.
+  \item Allow Dave to query the data in R or treat it as a Pandas dataframe and query it accordingly.
+  \item Provide rich processing options on $D^\prime$ and $D^{\prime \prime}$ for further processing.
+  \item Possibly use some serverless cloud service to temporarily scale up resources for fast query 
+    execution.
+\end{itemize}
+
+\subsection{Domain specific customization}
+Eve is a data scientist in the limnology department of an institution. She has developed a numerical
+model that simulates an aquatic ecosystem. She would like share her model and some sample input data
+with other limnology groups across the world.
+
+Ideally, Eve would like to share her model in such a way that lay users can run it with a couple of
+clicks without needing to understand the fine grained details of setting up the development 
+environment to build her code. Eve and other users of her model would also find it very helpful if 
+they could deploy her model on a platform that has extensive pre-processing and post-processing tools
+available for cleaning up input data and visualizing output data.

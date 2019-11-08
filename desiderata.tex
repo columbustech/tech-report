@@ -1,0 +1,30 @@
+\section{Desiderata for Columbus}
+Based on the limitations of current approaches and the motivating examples listed above, we have 
+identified the following desiderata for Columbus:
+
+\begin{itemize}
+  \item Collaborative: Users should be able to share data and code in an easy and intuitive manner.
+  \item Feature rich: A data cleaning and integration platform is only as good as the
+    functionality it provides. Columbus should have the capability to perform all operations
+    present in common data cleaning workflows.
+  \item Easy to install: Lay users should be able to install and use packages with a few
+    clicks. Also, the system itself should be easy to deploy and use. A small team of 4-5 data 
+    scientists should be able to easily set up a Columbus deployment for their internal use. 
+  \item Extensible: If a package to perform a particular task does not exist on Columbus, a user 
+    should be able to create a new package for it. Other users should then be able to install and
+    use this package.
+  \item Scalable: A team using Columbus should be able to scale up or scale down their deployment 
+    depending on the number of users they want to support. Also, packages created for Columbus 
+    should be able to leverage cloud services such as distributed computing, serverless functions,
+    cloud storage etc. in order to scale to larger datasets. Package developers should not need to
+    separately set up cloud infrastructure for creating a package, they should be able to leverage
+    this infrastructure through Columbus in an easy and intuitive manner.
+  \item Composable: Users should be able to compose packages together to create complex workflows
+    suited to their needs.
+  \item Development environment agnostic: Package developers should be free to develop packages in
+    the programming language of their choice. It should also be possible to intuitively compose 
+    together two or more packages developed in different programming languages.
+  \item Secure: Columbus should handle user authorization for data access. It should also provide
+    authentication and authorization as a service to third parties so that package developers do
+    not need to rewrite authentication logic for each package.
+\end{itemize}

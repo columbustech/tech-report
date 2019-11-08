@@ -1,0 +1,50 @@
+\section{Architecture}
+In order to make packages in Columbus lay user friendly and programming language independent, they 
+are designed as web apps with a graphical user interface. These apps can optionally expose REST 
+endpoints as microservices. These microservices can be chained together to create custom workflows.
+
+In this section, we present the achritecture of Columbus and its ecosystem of apps,
+which was designed to meet the criteria identified in the previous section.
+
+\subsection{Columbus on Kubernetes}
+
+Columbus is designed to run on a Kubernetes cluster due to the following reasons:
+\begin{itemize}
+  \item We want system administrators to be able to easily scale a Columbus deployment up or down 
+    without needing additional efforts from an infrastructure team. Running on an established 
+    container orchestration platform allows a Columbus deployment to serve a small team of 5 or a
+    large team of hundreds of users without any change in the deployment process. It also allows
+    an already existing deployment to dynamically scale up or down as per requirements.
+  \item We wanted individual components of Columbus to function as independently as possible. In 
+    keeping with the current best programming practices, we built the Colummbus platform itself as a 
+    collection of microservices. A Kubernetes cluster provides an internal network for easy and 
+    secure communication between these microservices running on the cluster.
+  \item In order to allow individual apps to run within a consistent environment, they are run as
+    containers within a Kubernetes cluster. Kubernetes provides a lot of ready made machinery for 
+    managing the lifecycle of these apps.
+  \item We wanted Columbus apps to be easy to install, so we require that they are packaged as
+    container images which individual users can pull and install for their personal use on Columbus.
+    Kubernetes provides authentication and security machinery that allows us to implement this in
+    a secure way.
+  \item We want apps to be able to expose microservices, which can then be composed together to 
+    create new apps that can execute more detailed workflows. Exposing these microservices over a
+    Kubernetes cluster makes it easy to dynamically scale them depending on usage. Kubernetes also
+    allows replicating these microservice and load balancing between replicas in order to make them
+    highly available with no down time.
+  \item Kubernetes allows multiplexing of cluster resources between different applications as well
+    as the Columbus platform without a particularly extensive setup procedure and Kubernetes also
+    takes care of load balancing over the cluster.
+  \item Kubernetes allows system adminsitrators to perform rolling updates to an existing Columbus
+    deployment, for example to upgrade to a newer version of Columbus with zero down time.
+  \item A Kubernetes cluster can be set up on a local machine, over an on-premise network or over
+    public cloud infrastructure. Designing Columbus to run on Kubernetes allows gives users the 
+    flexibility to choose their preferred infrastructure over which to deploy Columbus.
+  \item Kubernetes provides fairly comprehensive logging facilities out of the box, which we
+    leverage to make continuous improvements to the system.
+\end{itemize}
+
+\subsection{CDrive}
+
+\subsection{Applications}
+
+
