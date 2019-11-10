@@ -1,0 +1,40 @@
+\section{Applications}
+
+\begin{table*}[t]
+  \centering
+  \begin{tabular}{|p{4cm}|p{3cm}|p{7cm}|p{15mm}|}
+    \hline
+    Type of Data Processing & App Name & Description & App Type \\
+    \hline
+    \multirow{4}{*}{Browsing and Profiling} & Table Browser & Browsing a table Google Maps Style & Private \\
+    \cline{2-4} & String Attribute Profiler & Profile a set of strings & Private \\
+    \cline{2-4} & Table Profiler & Profile a table to collect many statistics & Hosted \\
+    \cline{2-4} & Attribute Type Detector & Detect the type of an attribute using deep learning & Private \\
+    \hline
+    \multirow{2}{*}{Querying} & SQL Querier  & Query CDrive data in place using SQL  & Private \\
+    \cline{2-4} & Poly Querier & Query a table using SQL, Python, or R & Shared \\
+    \hline
+    \multirow{3}{*}{Cleaning} & String Attribute Profiler & Normalize a set of strings & Private \\
+    \cline{2-4} & Value Normalizer & Normalize a set of values & Private \\
+    \cline{2-4} & Missing Value Detector & Detect possible synonyms for missing value & Private \\
+    \hline
+    Collaboration & Cymphony & Tool to enable a wide variety of crowdsourcing workflows & Shared \\
+    \hline
+    \multirow{4}{*}{Entity Matching} & Cloud Matcher & Self-service entity matching tool & Hosted \\
+    \cline{2-4} & Cloud Labeler & Collaboratively label tuple pairs as match/no-match & Shared \\
+    \cline{2-4} & Label Debugger & Debug a set of labeled tuple pairs to find mislabeled tuple pairs & Private \\
+    \cline{2-4} & Blocking Rule Executor & Execute blocking rules on large tables for entity matching & Hosted \\
+    \hline
+    Domain Specific App & General Lake Model & Execute a limnology numerical model & Private \\ 
+    \hline
+  \end{tabular}
+  \caption{Columbus applications}
+  \label{table:1}
+\end{table*}
+
+Table 1 gives a list of applications currently available for use on Columbus. An updated 
+list is also maintained on our website, \url{https://columbustech.io/appstore}. As the table 
+illustrates, we already have a diverse set of data cleaning apps on the platform. These apps can 
+also be chained together to create meaningful workflows, this is illustrated later in the 
+experiments section. By making the Columbus source code publically available, we hope to leverage 
+the community's participation in order to further beef up the Columbus app store.
